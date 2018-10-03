@@ -55,8 +55,8 @@ class BinarySearchTree:
             node.right = self.add_child(node.right,e)
         return node
 
-    #
-    def contains(self,node,e):
+
+    def _contains(self,node,e):
         if node.e == None:
             return False
         elif node == e:
@@ -65,6 +65,9 @@ class BinarySearchTree:
             return  self.contains(node.left,e)
         elif node < e:
             return self.contains(node.right,e)
+
+    def contains(self,e):
+        return self._contains(self.root,e)
     #前序 中序 后序 按照值 被访问顺序
     #前序 递归写法第一次就访问
     #中序 递归写法第二次就访问
